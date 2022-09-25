@@ -24,65 +24,85 @@ public class Jeon_Draw : MonoBehaviour
         Down,        
         Up,
     }
-
-    public Tilemap Ground;
-    public Tilemap Draw;
-    public TileBase Color;
-
-    [SerializeField]
-    List<Vector3Int> Draw_Vectors;
-
-    public Touching touching;
-    public GameObject SkillPointPreFeb, SkillPointField;
-    public bool SkillFinsh;
-    float Sq1;
-    Vector3 mouseInput;
-    Vector3Int Pos;
-    int x, y;
-    bool check;
-
-
-  
-    public void TouchDown()
+    public enum What
     {
-        mouseInput = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        x = (int)mouseInput.x;
-        y = (int)mouseInput.y;
+        Draw,
+        Remove,
+    }
+    [SerializeField] private Line LinePrefabs;
+	public Touching touching;
+	public What what;
 
-        if (touching == Touching.Up)
+
+	public GameObject linePrefab;
+	public LayerMask cantDrawOverLayer;
+	int cantDrawOverLayerIndex;
+
+
+
+	[Space(30f)]
+	public Gradient lineColor;
+	public float linePointsMinDistance;
+	public float lineWidth;
+
+	Line currentLine;
+
+	Camera cam;
+
+	void Start()
+	{
+		cantDrawOverLayerIndex = LayerMask.NameToLayer("CantDrawOver");
+	}
+	// Begin Draw ----------------------------------------------
+	public void BeginDraw()
+	{
+		currentLine = Instantiate(linePrefab, this.transform).GetComponent<Line>();
+
+		//Set line properties
+		currentLine.UsePhysics(false);
+		currentLine.SetLineColor(lineColor);
+		currentLine.SetPointsMinDistance(linePointsMinDistance);
+		currentLine.SetLineWidth(lineWidth);
+
+	}
+	// Draw ----------------------------------------------------
+	public void Draw()
+	{
+		if (currentLine != null)
         {
-            SkillPointField = Instantiate(SkillPointPreFeb, new Vector2(x, y), this.transform.rotation);            
-            touching = Touching.Down;                 
-        }
-    }
+			Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-    public void TouchDrag()
-    {
-        if(touching == Touching.Down)
-        {
-            mouseInput = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            x = (int)mouseInput.x;
-            y = (int)mouseInput.y;
-            SkillPointField.transform.position = new Vector3Int(x, y, 0);
-            Pos = new Vector3Int(x, y, 0);
-            ChangeTile(Pos);
-            
-        }
-    }
+			//Check if mousePos hits any collider with layer "CantDrawOver", if true cut the line by calling EndDraw( )
+			RaycastHit2D hit = Physics2D.CircleCast(mousePosition, lineWidth / 3f, Vector2.zero, 1f, cantDrawOverLayer);
 
-    public void TouchUp()
-    {
-        touching = Touching.Up;
-        GameUI.instance.TouchUI.SetActive(false);
-        Destroy(SkillPointField);
-    }
-    public void ChangeTile(Vector3Int AddTileVector)
-    {
-        Draw.SetTile(AddTileVector, null);
-        Draw.SetTile(AddTileVector, Color);
-        Draw_Vectors.Add(AddTileVector);
-        Draw_Vectors = Draw_Vectors.Distinct().ToList();
-       // Draw.SetTileFlags(Draw_Vectors[i], TileFlags.None);
-        // Draw.SetColor(Draw_Vectors[i], new Color(255 / 255f, 255 / 255f, 255 / 255f, 0 / 255f));
-    }
+			if (hit)
+				EndDraw();
+			else
+				currentLine.AddPoint(mousePosition);
+		}
+		
+	}
+	// End Draw ------------------------------------------------
+	public void EndDraw()
+	{
+		if (currentLine != null)
+		{
+			if (currentLine.pointsCount < 2)
+			{
+				//If line has one point
+				Destroy(currentLine.gameObject);
+			}
+			else
+			{
+				//Add the line to "CantDrawOver" layer
+				currentLine.gameObject.layer = cantDrawOverLayerIndex;
+
+				//Activate Physics on the line
+				currentLine.UsePhysics(true);
+
+				currentLine = null;
+			}
+		}
+		GameUI.instance.TouchUI.SetActive(false);
+	}
 }

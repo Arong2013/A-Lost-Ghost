@@ -16,30 +16,39 @@ public class Jeon_Players : MonoBehaviour
 {
     Rigidbody2D rigidbody;
     PlayerDIs Playerdis;
+    public LayerMask Gorund;
 
     public void Start()
     {
         rigidbody = this.gameObject.GetComponent<Rigidbody2D>();
         Playerdis = PlayerDIs.Normal;
     }
-    public void Update()
+    public void FixedUpdate()
     {
         switch (Playerdis)
         {
             case PlayerDIs.Normal:
-                rigidbody.AddForce(new Vector2(0, 0));
+                //rigidbody.AddForce(new Vector2(0,0));
                 break;
             case PlayerDIs.Right:
-                rigidbody.AddForce(new Vector2(1, 0));
+                transform.Translate(new Vector3(1 * 5f * Time.deltaTime, 0, 0));
                 break;
             case PlayerDIs.Left:
-                rigidbody.AddForce(new Vector2(-1, 0));
+                transform.Translate(new Vector3(-1 * 5f * Time.deltaTime, 0, 0));
                 break;
             case PlayerDIs.Jump:
+                transform.Translate(new Vector3(0, 1 * 5f * Time.deltaTime, 0));/*
+                RaycastHit2D JumpHit;
+                JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y - 0.5f), new Vector2(transform.position.x, transform.position.y - 0.5f), Gorund);
+                if (!JumpHit)
+                {
+                    Playerdis = PlayerDIs.Normal;
+                }*/
+                // transform.Translate(new Vector3(0, 1 * 10f * Time.deltaTime, 0));
+                // Playerdis= PlayerDIs.Normal;
                 break;
         }
     }
-
     public void ButtonDown(string Dis)
     {
         switch (Dis)
@@ -53,8 +62,17 @@ public class Jeon_Players : MonoBehaviour
             case "Left":
                 Playerdis = PlayerDIs.Left;
                 break;
-            case "Jump":
-                Playerdis = PlayerDIs.Jump;
+            case "Jump":                
+                RaycastHit2D JumpHit;
+                JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y - 1f), new Vector2(transform.position.x, transform.position.y - 1f), Gorund);
+                if(JumpHit)
+                {
+                    Playerdis = PlayerDIs.Jump;
+                }
+                else
+                {
+                    Playerdis = PlayerDIs.Normal;
+                }
                 break;
 
         }
