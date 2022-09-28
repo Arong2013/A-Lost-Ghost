@@ -18,6 +18,7 @@ public class Jeon_Players : MonoBehaviour
     Rigidbody2D rigidbody;
     PlayerDIs Playerdis;
     //BoxCollider2D boxcol;
+    SpriteRenderer spriteren;
     public LayerMask Gorund;
     public GameUI gameui;
 
@@ -25,7 +26,8 @@ public class Jeon_Players : MonoBehaviour
     {
         rigidbody = this.gameObject.GetComponent<Rigidbody2D>();
         //boxcol = GetComponent<BoxCollider2D>();
-        Playerdis = PlayerDIs.Normal;
+        Playerdis = PlayerDIs.Normal; 
+        spriteren = GetComponent<SpriteRenderer>();
     }
     public void FixedUpdate()
     {
@@ -64,13 +66,15 @@ public class Jeon_Players : MonoBehaviour
                 break;
             case "Right":
                 Playerdis = PlayerDIs.Right;
+                spriteren.flipX = false;
                 break;
             case "Left":
                 Playerdis = PlayerDIs.Left;
+                spriteren.flipX = true;
                 break;
             case "Jump":                
                 RaycastHit2D JumpHit;
-                JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y - 1f), new Vector2(transform.position.x, transform.position.y - 1f), Gorund);
+                JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y - 0.5f), new Vector2(transform.position.x, transform.position.y - 1f), Gorund);
                 if(JumpHit)
                 {
                     Playerdis = PlayerDIs.Jump;
@@ -88,5 +92,9 @@ public class Jeon_Players : MonoBehaviour
         Playerdis = PlayerDIs.Normal;
     }
 
-    
+    private void OnParticleCollision(GameObject other)
+    {
+        GameUI.instance.Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0));
+        
+    }
 }

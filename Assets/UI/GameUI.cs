@@ -29,11 +29,11 @@ public class GameUI : MonoBehaviour
     }
     #endregion
 
-    public GameObject TouchUI,DrawBtns;
+    public GameObject TouchUI,DrawBtns,TouchFalseUI,Player;
     public Slider slider;
     public int SliderV;
     public int stageindex;
-   
+    bool Esc;
 
 
     [SerializeField]
@@ -122,4 +122,32 @@ public class GameUI : MonoBehaviour
         }
        
     }
+
+
+    public void MenuBtns()
+    {
+
+    }
+    public void ReStartBtns()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void EscBtns()
+    {
+        if (!Esc)
+        {
+            TouchFalseUI.SetActive(true);
+            Esc = true;
+            Time.timeScale = 0;
+           
+        }
+        else
+        {
+            TouchFalseUI.SetActive(false);
+            Esc = false;
+            Time.timeScale = 1;
+           
+        }
+    }
+
 }
