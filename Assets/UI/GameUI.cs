@@ -63,7 +63,7 @@ public class GameUI : MonoBehaviour
     }
     public void NextStage() // jang_ stage ³Ñ±â±â 
     {
-        if(stageindex < 4)
+        if(stageindex < 3)
         {
 
             //SceneManager.LoadScene("InGame " + stageindex++);
