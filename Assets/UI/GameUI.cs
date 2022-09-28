@@ -32,6 +32,9 @@ public class GameUI : MonoBehaviour
     public GameObject TouchUI,DrawBtns;
     public Slider slider;
     public int SliderV;
+    public int stageindex;
+   
+
 
     [SerializeField]
     List<Maps> maps;
@@ -54,6 +57,20 @@ public class GameUI : MonoBehaviour
         }
         
     }
+    public void NextStage() // jang_ stage ³Ñ±â±â 
+    {
+        if(stageindex < 4)
+        {
+            SceneManager.LoadScene("InGame " + stageindex++);
+            Debug.Log(stageindex);
+        }
+        else
+        {
+            Debug.Log("clear");
+        }
+        
+    }
+  
 
     public void DrawBtns_Down()
     {

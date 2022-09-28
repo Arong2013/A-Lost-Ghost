@@ -3995,7 +3995,7 @@ MonoBehaviour:
   DrawBtns: {fileID: 1193373730}
   slider: {fileID: 914654360}
   SliderV: 0
-  stageindex: 1
+  stageindex: 3
   maps: []
   MapSelectUI: {fileID: 0}
 --- !u!61 &1443269552

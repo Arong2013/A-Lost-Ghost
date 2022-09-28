@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum PlayerDIs
 {
@@ -16,11 +17,14 @@ public class Jeon_Players : MonoBehaviour
 {
     Rigidbody2D rigidbody;
     PlayerDIs Playerdis;
+    //BoxCollider2D boxcol;
     public LayerMask Gorund;
+    public GameUI gameui;
 
     public void Start()
     {
         rigidbody = this.gameObject.GetComponent<Rigidbody2D>();
+        //boxcol = GetComponent<BoxCollider2D>();
         Playerdis = PlayerDIs.Normal;
     }
     public void FixedUpdate()
@@ -49,6 +53,15 @@ public class Jeon_Players : MonoBehaviour
                 break;
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision) // jang_ stage³Ñ±â±â
+    {
+        if(collision.transform.tag == "Finish")
+        {
+            gameui.NextStage();
+        }
+    }
+
     public void ButtonDown(string Dis)
     {
         switch (Dis)
@@ -82,4 +95,5 @@ public class Jeon_Players : MonoBehaviour
         Playerdis = PlayerDIs.Normal;
     }
 
+    
 }
