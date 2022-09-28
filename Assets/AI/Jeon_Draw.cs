@@ -33,6 +33,9 @@ public class Jeon_Draw : MonoBehaviour
 	public Touching touching;
 	public What what;
 
+	[SerializeField]
+	private LayerMask layer;
+
 
 	public GameObject linePrefab;
 	public LayerMask cantDrawOverLayer;
@@ -46,8 +49,8 @@ public class Jeon_Draw : MonoBehaviour
 	public float lineWidth;
 
 	Line currentLine;
-
-	Camera cam;
+    [SerializeField]
+    private Camera cam;
 
 	void Start()
 	{
@@ -56,15 +59,34 @@ public class Jeon_Draw : MonoBehaviour
 	// Begin Draw ----------------------------------------------
 	public void BeginDraw()
 	{
-		currentLine = Instantiate(linePrefab, this.transform).GetComponent<Line>();
+		if(what == What.Draw)
+		{
+            currentLine = Instantiate(linePrefab, this.transform).GetComponent<Line>();
 
-		//Set line properties
-		currentLine.UsePhysics(false);
-		currentLine.SetLineColor(lineColor);
-		currentLine.SetPointsMinDistance(linePointsMinDistance);
-		currentLine.SetLineWidth(lineWidth);
-
+            //Set line properties
+            currentLine.UsePhysics(false);
+            currentLine.SetLineColor(lineColor);
+            currentLine.SetPointsMinDistance(linePointsMinDistance);
+            currentLine.SetLineWidth(lineWidth);
+        }
+		
 	}
+
+	public void RemoveDown()
+	{
+        if(what == What.Remove)
+        {
+            Vector2 vector2 = Input.mousePosition;
+			vector2 = cam.ScreenToWorldPoint(vector2);
+			Debug.Log(vector2);
+            RaycastHit2D hit = Physics2D.Linecast(vector2, vector2, layer);
+            if (hit)
+            {
+                Destroy(hit.transform.gameObject);
+            }
+			
+        }
+    }
 	// Draw ----------------------------------------------------
 	public void Draw()
 	{

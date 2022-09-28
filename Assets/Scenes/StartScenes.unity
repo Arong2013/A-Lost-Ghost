@@ -2395,7 +2395,9 @@ MonoBehaviour:
   DrawBtns: {fileID: 0}
   slider: {fileID: 0}
   SliderV: 0
-  maps: []
+  maps:
+  - Name: ST1
+    Map: {fileID: 0}
   MapSelectUI: {fileID: 1380208154}
 --- !u!4 &924746735
 Transform:
