@@ -32,6 +32,9 @@ public class GameUI : MonoBehaviour
     public GameObject TouchUI,DrawBtns;
     public Slider slider;
     public int SliderV;
+    public int stageindex;
+   
+
 
     [SerializeField]
     List<Maps> maps;
@@ -43,6 +46,32 @@ public class GameUI : MonoBehaviour
     {
         SliderV = 1000;
     }
+
+    void OnCollisionEnter2D(Collision2D collision) // jang_ 추가 낙하했을때 되돌리기
+    {
+        if(collision.transform.tag == "Player")
+        {
+
+            collision.transform.position = new Vector3(0, 0, -1);
+
+        }
+        
+    }
+    public void NextStage() // jang_ stage 넘기기 
+    {
+        if(stageindex < 4)
+        {
+            SceneManager.LoadScene("InGame " + stageindex++);
+            Debug.Log(stageindex);
+        }
+        else
+        {
+            Debug.Log("clear");
+        }
+        
+    }
+  
+
     public void DrawBtns_Down()
     {
         TouchUI.SetActive(true);
