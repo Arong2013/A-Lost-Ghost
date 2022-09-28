@@ -41,15 +41,8 @@ public class Jeon_Players : MonoBehaviour
                 transform.Translate(new Vector3(-1 * 5f * Time.deltaTime, 0, 0));
                 break;
             case PlayerDIs.Jump:
-                transform.Translate(new Vector3(0, 1 * 5f * Time.deltaTime, 0));/*
-                RaycastHit2D JumpHit;
-                JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y - 0.5f), new Vector2(transform.position.x, transform.position.y - 0.5f), Gorund);
-                if (!JumpHit)
-                {
-                    Playerdis = PlayerDIs.Normal;
-                }*/
-                // transform.Translate(new Vector3(0, 1 * 10f * Time.deltaTime, 0));
-                // Playerdis= PlayerDIs.Normal;
+                rigidbody.AddForce(Vector2.up * 1f, ForceMode2D.Impulse);
+                Playerdis = PlayerDIs.Normal;
                 break;
         }
     }
