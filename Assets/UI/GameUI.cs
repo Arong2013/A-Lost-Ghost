@@ -43,6 +43,18 @@ public class GameUI : MonoBehaviour
     {
         SliderV = 1000;
     }
+
+    void OnCollisionEnter2D(Collision2D collision) // jang_ 추가 낙하했을때 되돌리기
+    {
+        if(collision.transform.tag == "Player")
+        {
+
+            collision.transform.position = new Vector3(0, 0, -1);
+
+        }
+        
+    }
+
     public void DrawBtns_Down()
     {
         TouchUI.SetActive(true);
