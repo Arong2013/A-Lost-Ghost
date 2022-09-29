@@ -9,6 +9,7 @@ public class Object : MonoBehaviour
     public enum WhatOb
     {
         Thorn,
+        Door,
     
     
     
@@ -19,6 +20,10 @@ public class Object : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (collision.CompareTag("Player") && what == WhatOb.Door)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
