@@ -88,5 +88,8 @@ public class Jeon_Players : MonoBehaviour
         Playerdis = PlayerDIs.Normal;
     }
 
-    
+    public void Reposition()
+    {
+        rigidbody.transform.position = new Vector3(0, 0, -1);
+    }
 }
