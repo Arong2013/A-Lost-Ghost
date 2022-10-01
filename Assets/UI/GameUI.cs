@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class Maps
@@ -26,10 +27,26 @@ public class GameUI : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(gameObject); instance = this;
+
+        if(MapSlot != null)
+        for(int i =0; i< maps.Count; i++)
+        {
+            Instantiate(MapSlot, MapParent.transform);
+        }
+
+        if(MapParent != null)
+        {
+            for(int i =0; i< MapParent.transform.childCount; i++)
+            {
+                mapSlots.Add(MapParent.transform.GetChild(i).GetComponent<MapSlot>());
+                MapParent.transform.GetChild(i).GetComponent<MapSlot>().map = maps[i];
+            }
+            
+        }
     }
     #endregion
 
-    public GameObject TouchUI,DrawBtns,TouchFalseUI,Player;
+    public GameObject TouchUI,DrawBtns,TouchFalseUI,Player,MapParent,CurMap,MapSlot;
     public Slider slider;
     public int SliderV;
     public int stageindex;
@@ -39,8 +56,11 @@ public class GameUI : MonoBehaviour
     [SerializeField]
     List<Maps> maps;
 
+    [SerializeField]
+    List<MapSlot> mapSlots ;
 
     public GameObject MapSelectUI;
+    
 
     public void Start()
     {
@@ -94,11 +114,6 @@ public class GameUI : MonoBehaviour
         }       
     }
 
-
-
-
-
-
     public void StartBtns()
     {
         MapSelectUI.SetActive(true);
@@ -117,7 +132,7 @@ public class GameUI : MonoBehaviour
         {
             if (Name == maps[i].Name)
             {
-                
+                SceneManager.LoadScene("InGame");
             }
         }
        

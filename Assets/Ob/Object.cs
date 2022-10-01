@@ -42,5 +42,9 @@ public class Object : MonoBehaviour
         }
     }
 
-    
+    public void OnParticleCollision(GameObject other)
+    {
+        
+    }
+
 }

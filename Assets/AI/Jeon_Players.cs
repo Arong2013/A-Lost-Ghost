@@ -95,6 +95,6 @@ public class Jeon_Players : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         GameUI.instance.Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0));
-        
+       
     }
 }

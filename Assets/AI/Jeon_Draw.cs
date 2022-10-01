@@ -95,7 +95,7 @@ public class Jeon_Draw : MonoBehaviour
 			Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 			//Check if mousePos hits any collider with layer "CantDrawOver", if true cut the line by calling EndDraw( )
-			RaycastHit2D hit = Physics2D.CircleCast(mousePosition, lineWidth / 3f, Vector2.zero, 1f, cantDrawOverLayer);
+			RaycastHit2D hit = Physics2D.CircleCast(mousePosition, lineWidth / 1f, Vector2.zero, 1f, cantDrawOverLayer);
 
 			if (hit)
 				EndDraw();
