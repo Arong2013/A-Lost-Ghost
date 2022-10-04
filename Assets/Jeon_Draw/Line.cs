@@ -72,4 +72,5 @@ public class Line : MonoBehaviour
 
 		edgeCollider.edgeRadius = circleColliderRadius;
 	}
+
 }
