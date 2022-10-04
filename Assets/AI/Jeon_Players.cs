@@ -21,6 +21,7 @@ public class Jeon_Players : MonoBehaviour
     SpriteRenderer spriteren;
     public LayerMask Gorund;
     public GameUI gameui;
+    Animator animation;
 
     public void Start()
     {
@@ -28,6 +29,7 @@ public class Jeon_Players : MonoBehaviour
         //boxcol = GetComponent<BoxCollider2D>();
         Playerdis = PlayerDIs.Normal; 
         spriteren = GetComponent<SpriteRenderer>();
+        animation = GetComponent<Animator>();
     }
     public void FixedUpdate()
     {
@@ -67,14 +69,16 @@ public class Jeon_Players : MonoBehaviour
             case "Right":
                 Playerdis = PlayerDIs.Right;
                 spriteren.flipX = false;
+                animation.SetBool("Walk", true);
                 break;
             case "Left":
                 Playerdis = PlayerDIs.Left;
                 spriteren.flipX = true;
+                animation.SetBool("Walk", true);
                 break;
             case "Jump":                
                 RaycastHit2D JumpHit;
-                JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y - 0.5f), new Vector2(transform.position.x, transform.position.y - 1f), Gorund);
+                JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y - 2f), new Vector2(transform.position.x, transform.position.y - 1f), Gorund);
                 if(JumpHit)
                 {
                     Playerdis = PlayerDIs.Jump;
@@ -90,6 +94,7 @@ public class Jeon_Players : MonoBehaviour
     public void ButtonUP()
     {
         Playerdis = PlayerDIs.Normal;
+        animation.SetBool("Walk", false);
     }
 
     private void OnParticleCollision(GameObject other)
