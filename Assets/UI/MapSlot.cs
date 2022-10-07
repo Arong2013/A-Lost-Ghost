@@ -8,8 +8,7 @@ public class MapSlot : MonoBehaviour
     public Maps map;
     public void BtnsDown()
     {
-        GameObject Maps = Instantiate(map.Map);
+        GameMapManger.instance.GameUIPre.GetComponent<GameUI>().Map_Name = map.Name; // 프리팹으로 맵 이름을 저장 
         SceneManager.LoadScene("InGame");        
-        DontDestroyOnLoad(Maps);
     }
 }

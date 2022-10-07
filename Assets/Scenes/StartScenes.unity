@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 155936894}
   - component: {fileID: 155936893}
   - component: {fileID: 155936892}
+  - component: {fileID: 155936895}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -287,6 +288,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &155936895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155936890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf437fe602e75546a21453501dc1b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameUIPre: {fileID: 1256615908645679876, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
 --- !u!1 &172736056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,13 +1960,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1256615908645679879, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
-      propertyPath: MapSlot
-      value: 
-      objectReference: {fileID: 7596907401057444348, guid: a56e51e7aa843ff488880fe24cdf1c29, type: 3}
-    - target: {fileID: 1256615908645679879, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
       propertyPath: MapParent
       value: 
       objectReference: {fileID: 261040950}
+    - target: {fileID: 1256615908645679879, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: whatScean
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1256615908645679879, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
       propertyPath: MapSelectUI
       value: 
