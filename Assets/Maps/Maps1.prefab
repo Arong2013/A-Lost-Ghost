@@ -1024,6 +1024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finsh
       objectReference: {fileID: 0}
+    - target: {fileID: 4397405250124793395, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     - target: {fileID: 4397405250124793399, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
       propertyPath: m_RootOrder
       value: 2

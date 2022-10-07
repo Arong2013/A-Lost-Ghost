@@ -10,17 +10,14 @@ public class Object : MonoBehaviour
     {
         Thorn,
         Wind,
-        Finsh
+        Button
     }
 
     [SerializeField]
     private WhatOb what;
     RaycastHit2D hit;
-
-    public void Start()
-    {
-       
-    }
+    public GameObject door;
+    public int count;
 
     public void Update()
     {
@@ -43,9 +40,26 @@ public class Object : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player") && what == WhatOb.Thorn)
-        {          
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Line" && count == 0 || collision.gameObject.tag == "Player" && count == 0)
+        {
+            door.transform.position = new Vector2(door.transform.position.x, door.transform.position.y + 2);
+            count++;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Line" && count != 0 || collision.gameObject.tag == "Player" && count != 0)
+        {
+            door.transform.position = new Vector2(door.transform.position.x, door.transform.position.y - 2);
+            count--;
+        }
+
     }
 
     public void OnParticleCollision(GameObject other)
