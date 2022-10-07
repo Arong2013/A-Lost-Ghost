@@ -104,9 +104,11 @@ MonoBehaviour:
   Player: {fileID: 0}
   MapParent: {fileID: 0}
   CurMap: {fileID: 0}
+  MapSlot: {fileID: 0}
   slider: {fileID: 0}
   SliderV: 0
   stageindex: 0
+  stn: {fileID: 4300910350376266500, guid: 786deb568e5118e4fa7178ede7a7654c, type: 3}
   maps:
   - Name: Maps1
     Map: {fileID: 3638608099828634065, guid: 929f3ff1176ca044198cb681b48d4fd3, type: 3}

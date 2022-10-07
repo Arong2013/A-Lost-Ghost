@@ -74,6 +74,9 @@ public class GameUI : MonoBehaviour
 
             collision.transform.position = new Vector3(0, 0, -1);
 
+        }else if(collision.transform.tag == "Stone")
+        {
+            Destroy(collision.gameObject);
         }
         
     }
@@ -125,7 +128,7 @@ public class GameUI : MonoBehaviour
         MapSelectUI.SetActive(false);
         SoundManger.instance.SFXplay("Click");
     }
-
+    
     public void MapSelect(string Name)
     {
         for(int i =0; i<maps.Count; i++)
@@ -135,7 +138,6 @@ public class GameUI : MonoBehaviour
                 SceneManager.LoadScene("InGame");
             }
         }
-       
     }
 
 
@@ -145,7 +147,10 @@ public class GameUI : MonoBehaviour
     }
     public void ReStartBtns()
     {
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+     
     }
     public void EscBtns()
     {
