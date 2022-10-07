@@ -50,15 +50,6 @@ public class Jeon_Players : MonoBehaviour
                 break;
         }
     }
-
-    void OnCollisionEnter2D(Collision2D collision) // jang_ stage³Ñ±â±â
-    {
-        if(collision.transform.tag == "Finish")
-        {
-            gameui.NextStage();
-        }
-    }
-
     public void ButtonDown(string Dis)
     {
         switch (Dis)

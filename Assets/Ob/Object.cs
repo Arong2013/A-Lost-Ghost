@@ -9,13 +9,19 @@ public class Object : MonoBehaviour
     public enum WhatOb
     {
         Thorn,
-        Wind   
+        Wind,
+        Finsh
     }
 
     [SerializeField]
     private WhatOb what;
     RaycastHit2D hit;
-  
+
+    public void Start()
+    {
+       
+    }
+
     public void Update()
     {
         if(what == WhatOb.Wind)
@@ -37,7 +43,7 @@ public class Object : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player") && what == WhatOb.Thorn)
-        {
+        {          
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

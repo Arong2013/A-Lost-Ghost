@@ -98,16 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae54dcc9af83f948905310cf0d2059b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  This_Game_OB: {fileID: 1256615908645679876}
   TouchUI: {fileID: 0}
   DrawBtns: {fileID: 0}
   TouchFalseUI: {fileID: 0}
   Player: {fileID: 0}
   MapParent: {fileID: 0}
-  CurMap: {fileID: 0}
-  MapSlot: {fileID: 0}
+  MapSlot: {fileID: 7596907401057444348, guid: a56e51e7aa843ff488880fe24cdf1c29, type: 3}
   slider: {fileID: 0}
   SliderV: 0
-  stageindex: 0
+  Map_Name: 
   maps:
   - Name: Maps1
     Map: {fileID: 3638608099828634065, guid: 929f3ff1176ca044198cb681b48d4fd3, type: 3}

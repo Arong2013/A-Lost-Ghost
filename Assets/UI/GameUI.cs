@@ -1,11 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Tilemaps;
-using System.Linq;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Maps
@@ -16,6 +12,11 @@ public class Maps
 
 public class GameUI : MonoBehaviour
 {
+    enum WhatScean
+    {
+        Stage,
+        Lobby
+    }
 
     #region Singleton
 
@@ -28,28 +29,46 @@ public class GameUI : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject); instance = this;
 
-        if(MapSlot != null)
-        for(int i =0; i< maps.Count; i++)
+        if(whatScean == WhatScean.Stage) // 스테이지라면 맵 생성 
         {
-            Instantiate(MapSlot, MapParent.transform);
-        }
+            for (int i = 0; i < maps.Count; i++)
+            {
+                if (maps[i].Name == Map_Name)
+                    Instantiate(maps[i].Map);
+            }
 
-        if(MapParent != null)
+            GameObject Finsh = GameObject.Find("Finsh");
+
+        }
+       
+
+        if (MapSlot != null) // 맵 슬롯이 없다면 맵의 개수 만큼 슬롯 생성 = 맵 선택화면에서 스테이지 보이기 위해 
+            for (int i = 0; i < maps.Count; i++)
+            {
+                Instantiate(MapSlot, MapParent.transform);
+            }
+
+        if (MapParent != null)
         {
-            for(int i =0; i< MapParent.transform.childCount; i++)
+            for (int i = 0; i < MapParent.transform.childCount; i++)
             {
                 mapSlots.Add(MapParent.transform.GetChild(i).GetComponent<MapSlot>());
                 MapParent.transform.GetChild(i).GetComponent<MapSlot>().map = maps[i];
             }
-            
         }
     }
     #endregion
 
-    public GameObject TouchUI,DrawBtns,TouchFalseUI,Player,MapParent,CurMap,MapSlot;
+    public GameObject This_Game_OB;
+    public GameObject TouchUI, DrawBtns, TouchFalseUI, Player, MapParent, MapSlot;
     public Slider slider;
-    public int SliderV;
-    public int stageindex;
+
+    [SerializeField]
+    WhatScean whatScean;
+
+    public int SliderV; // 맵 그리기 양
+    public string Map_Name; // 현재 맵 이름 
+
     bool Esc;
 
 
@@ -57,45 +76,27 @@ public class GameUI : MonoBehaviour
     List<Maps> maps;
 
     [SerializeField]
-    List<MapSlot> mapSlots ;
+    List<MapSlot> mapSlots;
 
     public GameObject MapSelectUI;
-    
 
     public void Start()
     {
-        SliderV = 1000;
+        SliderV = 1000; //  그리기 쓰면 지워지는 것 
     }
 
     void OnCollisionEnter2D(Collision2D collision) // jang_ 추가 낙하했을때 되돌리기
     {
-        if(collision.transform.tag == "Player")
+        if (collision.transform.tag == "Player")
         {
-
             collision.transform.position = new Vector3(0, 0, -1);
+        }
 
-        }
-        
     }
-    public void NextStage() // jang_ stage 넘기기 
-    {
-        if(stageindex < 4)
-        {
-            SceneManager.LoadScene("InGame " + stageindex++);
-            Debug.Log(stageindex);
-        }
-        else
-        {
-            Debug.Log("clear");
-        }
-        
-    }
-  
-
-    public void DrawBtns_Down()
+    public void DrawBtns_Down() // 그리기
     {
         TouchUI.SetActive(true);
-        if(Jeon_Draw.instance.what == Jeon_Draw.What.Draw)
+        if (Jeon_Draw.instance.what == Jeon_Draw.What.Draw)
         {
             Jeon_Draw.instance.what = Jeon_Draw.What.Remove;
         }
@@ -108,10 +109,10 @@ public class GameUI : MonoBehaviour
 
     public void Update()
     {
-        if(slider != null)
+        if (slider != null)
         {
             slider.value = SliderV;
-        }       
+        }
     }
 
     public void StartBtns()
@@ -126,16 +127,15 @@ public class GameUI : MonoBehaviour
         SoundManger.instance.SFXplay("Click");
     }
 
-    public void MapSelect(string Name)
+    public void MapSelect(string Name) // 맵 선택했을 때 
     {
-        for(int i =0; i<maps.Count; i++)
+        for (int i = 0; i < maps.Count; i++)
         {
             if (Name == maps[i].Name)
             {
                 SceneManager.LoadScene("InGame");
             }
         }
-       
     }
 
 
@@ -143,7 +143,7 @@ public class GameUI : MonoBehaviour
     {
 
     }
-    public void ReStartBtns()
+    public void ReStartBtns() // 다시하기 버튼 누르면
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -154,14 +154,14 @@ public class GameUI : MonoBehaviour
             TouchFalseUI.SetActive(true);
             Esc = true;
             Time.timeScale = 0;
-           
+
         }
         else
         {
             TouchFalseUI.SetActive(false);
             Esc = false;
             Time.timeScale = 1;
-           
+
         }
     }
 
