@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   what: 0
+  door: {fileID: 0}
 --- !u!1 &3638608099763469350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,4 +1098,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6b08749563e3e448fedd2b0132fd0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  what: 0
+  what: 3
+  door: {fileID: 0}

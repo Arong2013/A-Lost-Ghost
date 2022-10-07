@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae54dcc9af83f948905310cf0d2059b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whatScean: 1
   This_Game_OB: {fileID: 0}
   TouchUI: {fileID: 0}
   DrawBtns: {fileID: 0}
@@ -106,7 +107,6 @@ MonoBehaviour:
   MapParent: {fileID: 0}
   MapSlot: {fileID: 7596907401057444348, guid: a56e51e7aa843ff488880fe24cdf1c29, type: 3}
   slider: {fileID: 0}
-  whatScean: 1
   SliderV: 0
   Map_Name: Maps3
   maps:
@@ -116,5 +116,7 @@ MonoBehaviour:
     Map: {fileID: 4831175676542371103, guid: ca9a5532cdf32ea44a4fdd9f47b0ddae, type: 3}
   - Name: Maps3
     Map: {fileID: 681582356332847636, guid: 37fdce06be76e5f4ba8d32980e742fe3, type: 3}
+  - Name: Maps4
+    Map: {fileID: 1573674287833116577, guid: d256d12a1789d1f4fab98983d483a4aa, type: 3}
   mapSlots: []
   MapSelectUI: {fileID: 0}

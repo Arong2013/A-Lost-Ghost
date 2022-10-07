@@ -70,7 +70,7 @@ public class GameUI : MonoBehaviour
 
 
     [SerializeField]
-    List<Maps> maps;
+    public List<Maps> maps;
 
     [SerializeField]
     List<MapSlot> mapSlots;
@@ -144,6 +144,7 @@ public class GameUI : MonoBehaviour
     }
     public void ReStartBtns() // 다시하기 버튼 누르면
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void EscBtns()

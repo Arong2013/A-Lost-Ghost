@@ -64,7 +64,7 @@ public class Jeon_Players : MonoBehaviour
                 break;
             case "Jump":
                 RaycastHit2D JumpHit;
-                JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y - 2f), new Vector2(transform.position.x, transform.position.y - 1f), Gorund);
+                JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y-1.2f), new Vector2(transform.position.x, transform.position.y - 1.2f), Gorund);
                 if (JumpHit)
                 {
                     Playerdis = PlayerDIs.Jump;
