@@ -17,7 +17,7 @@ public class Object : MonoBehaviour
     private WhatOb what;
     RaycastHit2D hit;
     public GameObject door;
-    public int count;
+    int count;
 
     public void Update()
     {
@@ -46,25 +46,27 @@ public class Object : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Line" && count == 0 || collision.gameObject.tag == "Player" && count == 0)
+        if(what == WhatOb.Button)
         {
-            door.transform.position = new Vector2(door.transform.position.x, door.transform.position.y + 2);
-            count++;
+            if (collision.gameObject.tag == "Line" && count == 0 || collision.gameObject.tag == "Player" && count == 0)
+            {
+                door.transform.position = new Vector2(door.transform.position.x, door.transform.position.y + 2);
+                count++;
+            }
         }
+        
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Line" && count != 0 || collision.gameObject.tag == "Player" && count != 0)
+        if(what == WhatOb.Button)
         {
-            door.transform.position = new Vector2(door.transform.position.x, door.transform.position.y - 2);
-            count--;
+            if (collision.gameObject.tag == "Line" && count != 0 || collision.gameObject.tag == "Player" && count != 0)
+            {
+                door.transform.position = new Vector2(door.transform.position.x, door.transform.position.y - 2);
+                count--;
+            }
+
         }
 
     }
-
-    public void OnParticleCollision(GameObject other)
-    {
-        
-    }
-
 }

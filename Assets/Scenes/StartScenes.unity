@@ -1964,10 +1964,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 261040950}
     - target: {fileID: 1256615908645679879, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
-      propertyPath: whatScean
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1256615908645679879, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
       propertyPath: MapSelectUI
       value: 
       objectReference: {fileID: 1380208154}
