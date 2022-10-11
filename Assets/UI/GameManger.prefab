@@ -107,6 +107,7 @@ MonoBehaviour:
   MapParent: {fileID: 0}
   MapSlot: {fileID: 7596907401057444348, guid: a56e51e7aa843ff488880fe24cdf1c29, type: 3}
   slider: {fileID: 0}
+  Stone_OB: []
   SliderV: 0
   Map_Name: Maps3
   maps:
@@ -117,6 +118,10 @@ MonoBehaviour:
   - Name: Maps3
     Map: {fileID: 681582356332847636, guid: 37fdce06be76e5f4ba8d32980e742fe3, type: 3}
   - Name: Maps4
-    Map: {fileID: 1573674287833116577, guid: d256d12a1789d1f4fab98983d483a4aa, type: 3}
+    Map: {fileID: 5636632759046593067, guid: aabb3cdfe6253304ca79e71a18fb5bac, type: 3}
+  - Name: Maps6
+    Map: {fileID: 3638608099828634065, guid: e37853751a887e549974e5a86ed29e53, type: 3}
+  - Name: Maps8
+    Map: {fileID: 3638608099828634065, guid: 1647e7737319c1a489da6267c9c62046, type: 3}
   mapSlots: []
   MapSelectUI: {fileID: 0}

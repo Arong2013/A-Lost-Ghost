@@ -54,6 +54,10 @@ public class CameraAI : MonoBehaviour
             {
                 transform.position = new Vector3(AT.position.x, AT.position.y, -10);
                 state = State.Start;
+                for(int i = 0; i<GameUI.instance.Stone_OB.Count; i++)
+                {
+                    GameUI.instance.Stone_OB[i].bodyType = RigidbodyType2D.Dynamic;
+                }
             }
         }
     }

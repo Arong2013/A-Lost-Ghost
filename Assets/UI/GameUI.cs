@@ -61,6 +61,7 @@ public class GameUI : MonoBehaviour
     public GameObject This_Game_OB;
     public GameObject TouchUI, DrawBtns, TouchFalseUI, Player, MapParent, MapSlot;
     public Slider slider;
+    public List<Rigidbody2D> Stone_OB;
 
    
     public int SliderV; // ¸Ê ±×¸®±â ¾ç

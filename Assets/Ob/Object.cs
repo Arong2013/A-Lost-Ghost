@@ -11,7 +11,8 @@ public class Object : MonoBehaviour
         Thorn,
         Wind,
         Button,
-        Finsh
+        Finsh,
+        Stone
     }
 
     [SerializeField]
@@ -20,6 +21,12 @@ public class Object : MonoBehaviour
     public GameObject door;
     int count;
     string MapName;
+
+    public void Start()
+    {
+        if (what == WhatOb.Stone)
+            GameUI.instance.Stone_OB.Add(this.gameObject.GetComponent<Rigidbody2D>());
+    }
 
     public void Update()
     {
