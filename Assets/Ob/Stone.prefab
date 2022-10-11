@@ -93,7 +93,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9049306390014006025}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -118,7 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6b08749563e3e448fedd2b0132fd0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  what: 0
+  what: 4
+  door: {fileID: 0}
 --- !u!58 &2547503846985523686
 CircleCollider2D:
   m_ObjectHideFlags: 0

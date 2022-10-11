@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +9,8 @@ public class Object : MonoBehaviour
         Thorn,
         Wind,
         Button,
-        Finsh
+        Finsh,
+        Stone
     }
 
     [SerializeField]
@@ -21,9 +20,15 @@ public class Object : MonoBehaviour
     int count;
     string MapName;
 
+    public void Start()
+    {
+        if (what == WhatOb.Stone)
+            GameUI.instance.Stone.Add(this.gameObject.GetComponent<Rigidbody2D>());
+    }
+
     public void Update()
     {
-        if(what == WhatOb.Wind)
+        if (what == WhatOb.Wind)
         {          /* 
             hit =  Physics2D.Raycast(transform.position, Vector2.left,5f);
             Debug.DrawRay(transform.position, Vector2.left * 5f, Color.red);
@@ -36,23 +41,23 @@ public class Object : MonoBehaviour
             {
                 return;
             }*/
-          
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") && what == WhatOb.Thorn)
+        if (collision.CompareTag("Player") && what == WhatOb.Thorn)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        else if(collision.CompareTag("Player") && what == WhatOb.Finsh)
-        {          
-            for(int i =0; i<GameUI.instance.maps.Count; i++)
+        else if (collision.CompareTag("Player") && what == WhatOb.Finsh)
+        {
+            for (int i = 0; i < GameUI.instance.maps.Count; i++)
             {
                 if (GameUI.instance.maps[i].Name == GameUI.instance.Map_Name)
                 {
                     MapName = GameUI.instance.maps[i + 1].Name;
-                }                   
+                }
             }
             GameMapManger.instance.GameUIPre.GetComponent<GameUI>().Map_Name = MapName;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -60,7 +65,7 @@ public class Object : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(what == WhatOb.Button)
+        if (what == WhatOb.Button)
         {
             if (collision.gameObject.tag == "Line" && count == 0 || collision.gameObject.tag == "Player" && count == 0)
             {
@@ -68,11 +73,11 @@ public class Object : MonoBehaviour
                 count++;
             }
         }
-        
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(what == WhatOb.Button)
+        if (what == WhatOb.Button)
         {
             if (collision.gameObject.tag == "Line" && count != 0 || collision.gameObject.tag == "Player" && count != 0)
             {

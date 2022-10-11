@@ -77,6 +77,8 @@ public class GameUI : MonoBehaviour
 
     public GameObject MapSelectUI;
 
+    public List<Rigidbody2D> Stone;
+
     public void Start()
     {
 
