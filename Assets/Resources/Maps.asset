@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ac0650058d84a408743772c1b79a92, type: 3}
+  m_Name: Maps
+  m_EditorClassIdentifier: 
+  maps:
+  - Name: 1-1
+    BGM_Name: Maps1
+    Map: {fileID: 3638608099828634065, guid: 929f3ff1176ca044198cb681b48d4fd3, type: 3}
+  - Name: 1-2
+    BGM_Name: Maps1
+    Map: {fileID: 4831175676542371103, guid: ca9a5532cdf32ea44a4fdd9f47b0ddae, type: 3}
+  - Name: 1-3
+    BGM_Name: Maps1
+    Map: {fileID: 681582356332847636, guid: 37fdce06be76e5f4ba8d32980e742fe3, type: 3}
+  - Name: 1-4
+    BGM_Name: Maps1
+    Map: {fileID: 1573674287833116577, guid: d256d12a1789d1f4fab98983d483a4aa, type: 3}
+  - Name: 1-5
+    BGM_Name: Maps1
+    Map: {fileID: 1573674287833116577, guid: 6414fc2c067c79549bb7c4ce8ddf0271, type: 3}
+  - Name: 1-6
+    BGM_Name: Maps1
+    Map: {fileID: 3638608099828634065, guid: 680f9fcc7e1078c4b9b35555e5235ede, type: 3}
+  - Name: 1-7
+    BGM_Name: Maps1
+    Map: {fileID: 1573674287833116577, guid: 84ecb74d275e0534f8858483902c0079, type: 3}
+  - Name: 1-8
+    BGM_Name: Maps1
+    Map: {fileID: 3638608099828634065, guid: bf50251ef31b33a4ca0a56ffdffc825e, type: 3}
+  - Name: 1-9
+    BGM_Name: Maps1
+    Map: {fileID: 1573674287833116577, guid: 717e7b47287f0e040b1ed6515a5f9c8d, type: 3}
+  - Name: 1-10
+    BGM_Name: Maps1
+    Map: {fileID: 1573674287833116577, guid: 2d7a72095d1a556498acb7f0c8663e1e, type: 3}
+  Save_Map_Name: 1-1

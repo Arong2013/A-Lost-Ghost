@@ -6,6 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class CameraAI : MonoBehaviour
 {
+    public static CameraAI instance;
+    #region Singleton
+
+
+
+    void Awake()
+    {
+        instance = this;       
+    }
+    #endregion
     public enum State
     {
         Start,
@@ -17,10 +27,14 @@ public class CameraAI : MonoBehaviour
     State state;
     Transform AT;
 
-    private void Start()
+    public void Start()
     {
         state = State.Start;
         AT = Player.transform;
+    }
+    public void Starts()
+    {
+       
         StartCoroutine(CameraAI_Start());
     }
     
@@ -58,6 +72,7 @@ public class CameraAI : MonoBehaviour
                     GameUI.instance.Stone[i].bodyType = RigidbodyType2D.Dynamic;
                 }
                 state = State.Start;
+                GameUI.instance.Fade.SetActive(false);
             }
         }
     }

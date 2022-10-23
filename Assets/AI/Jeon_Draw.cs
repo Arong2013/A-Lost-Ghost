@@ -36,17 +36,20 @@ public class Jeon_Draw : MonoBehaviour
 	[SerializeField]
 	private LayerMask layer;
 
+	[SerializeField]
+	GameObject linePrefab;
 
-	public GameObject linePrefab;
-	public LayerMask cantDrawOverLayer;
+	[SerializeField]
+	LayerMask cantDrawOverLayer;
 	int cantDrawOverLayerIndex;
 
 
-
+	[SerializeField]
 	[Space(30f)]
-	public Gradient lineColor;
-	public float linePointsMinDistance;
-	public float lineWidth;
+	Gradient lineColor;
+
+	[SerializeField]
+	float linePointsMinDistance, lineWidth;
 
 	Line currentLine;
     [SerializeField]
@@ -56,73 +59,56 @@ public class Jeon_Draw : MonoBehaviour
 	{
 		cantDrawOverLayerIndex = LayerMask.NameToLayer("CantDrawOver");
 	}
-	// Begin Draw ----------------------------------------------
+
 	public void BeginDraw()
 	{
 		if(what == What.Draw)
 		{
-            currentLine = Instantiate(linePrefab, this.transform).GetComponent<Line>();
+            currentLine = Instantiate(linePrefab, this.transform).GetComponent<Line>();//생성된 라인을 Cur에 지정
 
-            //Set line properties
-            currentLine.UsePhysics(false);
-            currentLine.SetLineColor(lineColor);
-            currentLine.SetPointsMinDistance(linePointsMinDistance);
-            currentLine.SetLineWidth(lineWidth);
+            currentLine.UsePhysics(false);//그리기 시작할때는 물리 효과X
+            currentLine.SetLineColor(lineColor);//라인 렌더러 색지정
+            currentLine.SetPointsMinDistance(linePointsMinDistance);//터치 했을때 최소 길이
+            currentLine.SetLineWidth(lineWidth);//두깨 최소 두깨
         }
+		else if(what == What.Remove)
+        {
+			Vector2 vector2 = Input.mousePosition;
+			vector2 = cam.ScreenToWorldPoint(vector2);
+			Collider2D hit = Physics2D.OverlapBox(vector2, new Vector2(2,2), 0,layer); 
+			if (hit)
+				Destroy(hit.transform.gameObject); // 제거라고 되어 있을때 터치한곳 콜라이더 찾기
+		}
 		
 	}
-
-	public void RemoveDown()
-	{
-        if(what == What.Remove)
-        {
-            Vector2 vector2 = Input.mousePosition;
-			vector2 = cam.ScreenToWorldPoint(vector2);
-			Debug.Log(vector2);
-            RaycastHit2D hit = Physics2D.Linecast(vector2, vector2, layer);
-            if (hit)
-            {
-                Destroy(hit.transform.gameObject);
-            }
-			
-        }
-    }
-	// Draw ----------------------------------------------------
 	public void Draw()
 	{
 		if (currentLine != null)
         {
 			Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-			//Check if mousePos hits any collider with layer "CantDrawOver", if true cut the line by calling EndDraw( )
 			RaycastHit2D hit = Physics2D.CircleCast(mousePosition, lineWidth / 1f, Vector2.zero, 1f, cantDrawOverLayer);
 
 			if (hit)
-				EndDraw();
+				EndDraw(); // 만약에 그리고 있는 곳이 플레이어랑 만나면 강제로 멈추기
 			else
-				currentLine.AddPoint(mousePosition);
+				currentLine.AddPoint(mousePosition); // 그리기
 		}
 		
 	}
-	// End Draw ------------------------------------------------
 	public void EndDraw()
 	{
 		if (currentLine != null)
 		{
 			if (currentLine.pointsCount < 2)
 			{
-				//If line has one point
 				Destroy(currentLine.gameObject);
 			}
 			else
 			{
-				//Add the line to "CantDrawOver" layer
 				currentLine.gameObject.layer = cantDrawOverLayerIndex;
-
-				//Activate Physics on the line
-				currentLine.UsePhysics(true);
-
-				currentLine = null;
+				currentLine.UsePhysics(true); // 끝나면 중력설정
+				currentLine = null; 
 			}
 		}
 		GameUI.instance.TouchUI.SetActive(false);

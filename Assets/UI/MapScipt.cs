@@ -1,0 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/SpawnManagerScriptableObject", order = 1)]
+public class MapScipt : ScriptableObject
+{
+    public List<Maps> maps;
+    public string Save_Map_Name;
+}

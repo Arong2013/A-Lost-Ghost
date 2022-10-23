@@ -15,8 +15,8 @@ public class Jeon_Players : MonoBehaviour
     PlayerDIs Playerdis;
     //BoxCollider2D boxcol;
     SpriteRenderer spriteren;
-    public LayerMask Gorund;
-    public GameUI gameui;
+    [SerializeField]
+    LayerMask Gorund;
     Animator animation;
     public void Start()
     {
@@ -64,9 +64,11 @@ public class Jeon_Players : MonoBehaviour
                 break;
             case "Jump":
                 RaycastHit2D JumpHit;
+              
                 JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y-1.2f), new Vector2(transform.position.x, transform.position.y - 1.2f), Gorund);
                 if (JumpHit)
                 {
+                    SoundManger.instance.SFXplay("Jump");
                     Playerdis = PlayerDIs.Jump;
                 }
                 else
@@ -80,10 +82,5 @@ public class Jeon_Players : MonoBehaviour
     {
         Playerdis = PlayerDIs.Normal;
         animation.SetBool("Walk", false);
-    }
-    private void OnParticleCollision(GameObject other)
-    {
-        GameUI.instance.Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0));
-
     }
 }

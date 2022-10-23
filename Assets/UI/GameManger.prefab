@@ -84,7 +84,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 3
   linePointsMinDistance: 0.2
-  lineWidth: 0.2
+  lineWidth: 0.5
   cam: {fileID: 0}
 --- !u!114 &1256615908645679879
 MonoBehaviour:
@@ -99,29 +99,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatScean: 1
-  This_Game_OB: {fileID: 0}
+  Fade: {fileID: 0}
+  Logo: {fileID: 0}
+  Loby: {fileID: 0}
+  LobyUI: {fileID: 0}
+  MapParent: {fileID: 0}
+  MapSlot: {fileID: 7596907401057444348, guid: a56e51e7aa843ff488880fe24cdf1c29, type: 3}
+  mapScipt: {fileID: 11400000, guid: 7a5dfe5ae3d85c940a122cc6882941b1, type: 2}
+  mapSlots: []
   TouchUI: {fileID: 0}
   DrawBtns: {fileID: 0}
   TouchFalseUI: {fileID: 0}
-  Player: {fileID: 0}
-  MapParent: {fileID: 0}
-  MapSlot: {fileID: 7596907401057444348, guid: a56e51e7aa843ff488880fe24cdf1c29, type: 3}
+  Options: {fileID: 0}
+  ClearUI: {fileID: 0}
   slider: {fileID: 0}
+  Map_Clear_Name: {fileID: 0}
+  Stars: []
+  Clear_Stars: []
   SliderV: 0
-  Map_Name: Maps3
-  maps:
-  - Name: Maps1
-    Map: {fileID: 3638608099828634065, guid: 929f3ff1176ca044198cb681b48d4fd3, type: 3}
-  - Name: Maps2
-    Map: {fileID: 4831175676542371103, guid: ca9a5532cdf32ea44a4fdd9f47b0ddae, type: 3}
-  - Name: Maps3
-    Map: {fileID: 681582356332847636, guid: 37fdce06be76e5f4ba8d32980e742fe3, type: 3}
-  - Name: Maps4
-    Map: {fileID: 1573674287833116577, guid: d256d12a1789d1f4fab98983d483a4aa, type: 3}
-  - Name: Maps6
-    Map: {fileID: 3638608099828634065, guid: e37853751a887e549974e5a86ed29e53, type: 3}
-  - Name: Maps8
-    Map: {fileID: 3638608099828634065, guid: 1647e7737319c1a489da6267c9c62046, type: 3}
-  mapSlots: []
+  Map_Name: 1-3
+  Cun_Map: 
   MapSelectUI: {fileID: 0}
   Stone: []

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,35 +21,28 @@ public class SoundManger : MonoBehaviour
     //[FoldoutGroup("BGM")]
     [SerializeField]
     private List<Sound> BGM;
-  //  [FoldoutGroup("BGM")]
+    //  [FoldoutGroup("BGM")]
     [SerializeField]
     AudioSource BGMplayer;
-   // [FoldoutGroup("BGM")]
+    // [FoldoutGroup("BGM")]
     [SerializeField]
-    public Slider BGMbar;
-   // [FoldoutGroup("BGM")]
+    Slider BGMbar;
+    // [FoldoutGroup("BGM")]
     [SerializeField]
-    public Text BGMtext;
+    Text BGMtext;
 
-   // [FoldoutGroup("SFX")]
+    // [FoldoutGroup("SFX")]
     [SerializeField]
     List<Sound> SFX;
-   // [FoldoutGroup("SFX")]
+    // [FoldoutGroup("SFX")]
     [SerializeField]
     List<AudioSource> SFXplayer;
-   // [FoldoutGroup("SFX")]
+    // [FoldoutGroup("SFX")]
     [SerializeField]
-    public Slider SFXbar;
+    Slider SFXbar;
     //[FoldoutGroup("SFX")]
     [SerializeField]
-    public Text SFXtext;
-
-    public void Start()
-    {
-        BGMplay("Main");
-    }
-
-
+    Text SFXtext;
 
     public void BGMplay(string name)
     {
@@ -66,11 +58,19 @@ public class SoundManger : MonoBehaviour
 
     }
 
+    public void BGM_POS(bool what)
+    {
+        if (what)
+            BGMplayer.Play();
+        else
+            BGMplayer.Stop();
+    }
+
     public void Set_BGM_Volume()
     {
         BGMplayer.volume = BGMbar.value * 1 / 100;
         int Volume = (int)BGMbar.value;
-        BGMtext.text = Volume.ToString();
+       // BGMtext.text = Volume.ToString();
     }
 
 
@@ -101,6 +101,6 @@ public class SoundManger : MonoBehaviour
         }
 
         int Volume = (int)SFXbar.value;
-        SFXtext.text = Volume.ToString();
+       // SFXtext.text = Volume.ToString();
     }
 }

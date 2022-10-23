@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using DG.Tweening;
 
 public class Object : MonoBehaviour
 {
@@ -44,25 +44,6 @@ public class Object : MonoBehaviour
 
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && what == WhatOb.Thorn)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        else if (collision.CompareTag("Player") && what == WhatOb.Finsh)
-        {
-            for (int i = 0; i < GameUI.instance.maps.Count; i++)
-            {
-                if (GameUI.instance.maps[i].Name == GameUI.instance.Map_Name)
-                {
-                    MapName = GameUI.instance.maps[i + 1].Name;
-                }
-            }
-            GameMapManger.instance.GameUIPre.GetComponent<GameUI>().Map_Name = MapName;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (what == WhatOb.Button)
@@ -87,5 +68,28 @@ public class Object : MonoBehaviour
 
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && what == WhatOb.Thorn)
+        {
+            SoundManger.instance.SFXplay("Hit");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (collision.gameObject.tag == "Player" && what == WhatOb.Stone)
+        {
+            SoundManger.instance.SFXplay("Hit");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (collision.gameObject.tag == "Player" && what == WhatOb.Finsh)
+        {
+            GameUI.instance.ClearUI.SetActive(true);
+            StartCoroutine(GameUI.instance.Clear_Stars_Color());
+            SoundManger.instance.SFXplay("Clear");
+            SoundManger.instance.BGM_POS(false);
+            GameUI.instance.Cun_Map = MapName;
+
+        }
     }
 }

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 861001152962667198}
   - component: {fileID: 861001152962667199}
-  - component: {fileID: 861001152962667196}
   - component: {fileID: 861001152962667197}
   - component: {fileID: 861001152962667187}
   - component: {fileID: 861001152962667186}
   - component: {fileID: 861001152962667193}
+  - component: {fileID: 6092997032750208804}
   m_Layer: 8
   m_Name: Players
   m_TagString: Player
@@ -87,32 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &861001152962667196
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861001152962667184}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0087509155, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2178135, y: 4.3460627}
-  m_EdgeRadius: 0
 --- !u!50 &861001152962667197
 Rigidbody2D:
   serializedVersion: 4
@@ -148,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gorund:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
   gameui: {fileID: 0}
 --- !u!114 &861001152962667186
 MonoBehaviour:
@@ -181,3 +155,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &6092997032750208804
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861001152962667184}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.020899773, y: -0.03134966}
+  m_Size: {x: 3.3698215, y: 4.4775076}
+  m_Direction: 0
