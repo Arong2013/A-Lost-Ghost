@@ -318,7 +318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   what: 0
-  door: {fileID: 0}
+  Doors: {fileID: 0}
+  btns: []
 --- !u!50 &4215750866191667841
 Rigidbody2D:
   serializedVersion: 4
@@ -1312,7 +1313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4397405250124793399, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48.9
+      value: 48.76
       objectReference: {fileID: 0}
     - target: {fileID: 4397405250124793399, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
       propertyPath: m_LocalPosition.y
