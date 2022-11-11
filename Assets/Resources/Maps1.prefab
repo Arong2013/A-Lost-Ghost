@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   what: 0
-  door: {fileID: 0}
+  Doors: {fileID: 0}
+  btns: []
 --- !u!50 &5660415861341430150
 Rigidbody2D:
   serializedVersion: 4
@@ -926,11 +927,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4397405250124793399, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4397405250124793399, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4397405250124793399, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -938,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4397405250124793399, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.9
+      value: -10.17
       objectReference: {fileID: 0}
     - target: {fileID: 4397405250124793399, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -998,4 +999,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   what: 3
-  door: {fileID: 0}
+  Doors: {fileID: 0}
+  btns: []
