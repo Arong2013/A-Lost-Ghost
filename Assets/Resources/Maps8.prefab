@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   what: 2
-  door: {fileID: 7150218590760795650}
+  Doors: {fileID: 0}
+  btns: []
+  Moves: {fileID: 0}
 --- !u!61 &7781890355407639274
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -464,7 +466,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   what: 0
-  door: {fileID: 0}
+  Doors: {fileID: 0}
+  btns: []
+  Moves: {fileID: 0}
 --- !u!50 &1019982725934144471
 Rigidbody2D:
   serializedVersion: 4
@@ -1554,8 +1558,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7150218590760795650}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.23, y: 3.06, z: 0}
-  m_LocalScale: {x: 1, y: 3, z: 1}
+  m_LocalPosition: {x: 45.23, y: 5.3419, z: 0}
+  m_LocalScale: {x: 1, y: 7.564066, z: 1}
   m_Children: []
   m_Father: {fileID: 3638608099828634079}
   m_RootOrder: 6
@@ -1680,6 +1684,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3638608099828634079}
     m_Modifications:
+    - target: {fileID: 9049306390014006024, guid: c50faaf4f14afef40b50e0dc79ebf8f4, type: 3}
+      propertyPath: Moves
+      value: 
+      objectReference: {fileID: 7068235884294475562}
     - target: {fileID: 9049306390014006025, guid: c50faaf4f14afef40b50e0dc79ebf8f4, type: 3}
       propertyPath: m_Name
       value: Stone (1)
@@ -1694,7 +1702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049306390014006028, guid: c50faaf4f14afef40b50e0dc79ebf8f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.56
+      value: 12.6
       objectReference: {fileID: 0}
     - target: {fileID: 9049306390014006028, guid: c50faaf4f14afef40b50e0dc79ebf8f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1730,11 +1738,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c50faaf4f14afef40b50e0dc79ebf8f4, type: 3}
+--- !u!1 &7784000638508615442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9049306390014006025, guid: c50faaf4f14afef40b50e0dc79ebf8f4, type: 3}
+  m_PrefabInstance: {fileID: 1266579540743640091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7784000638508615447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9049306390014006028, guid: c50faaf4f14afef40b50e0dc79ebf8f4, type: 3}
   m_PrefabInstance: {fileID: 1266579540743640091}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &7068235884294475562
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784000638508615442}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -9.518988}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.756757, y: 6.756757}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.756757, y: 6.53572}
+  m_EdgeRadius: 0
 --- !u!1001 &3638608098831660728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1820,7 +1859,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   what: 3
-  door: {fileID: 0}
+  Doors: {fileID: 0}
+  btns: []
+  Moves: {fileID: 0}
 --- !u!1001 &9222769111923572910
 PrefabInstance:
   m_ObjectHideFlags: 0
