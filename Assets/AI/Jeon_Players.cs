@@ -11,13 +11,22 @@ public enum PlayerDIs
 }
 public class Jeon_Players : MonoBehaviour
 {
+    public static Jeon_Players instance;
+    #region Singleton
+    void Awake()
+    {
+        instance = this;
+       
+    }
+    #endregion
+
     Rigidbody2D rigidbody;
     PlayerDIs Playerdis;
     //BoxCollider2D boxcol;
     SpriteRenderer spriteren;
     [SerializeField]
     LayerMask Gorund;
-    Animator animation;
+    public Animator animation;
     public void Start()
     {
         rigidbody = this.gameObject.GetComponent<Rigidbody2D>();

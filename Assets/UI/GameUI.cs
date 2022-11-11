@@ -128,7 +128,7 @@ public class GameUI : MonoBehaviour
         else if(whatScean == WhatScean.Lobby)
         {
             SoundManger.instance.BGMplay("Main");
-            Logo.DOColor(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), 5f);
+            Logo.DOColor(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), 2f);
         }
 
     }
@@ -217,7 +217,18 @@ public class GameUI : MonoBehaviour
     }
     public void ReStartBtns() // 다시하기 버튼 누르면
     {
+        StartCoroutine(ReStarts());
+    }
+
+    IEnumerator ReStarts()
+    {
         Time.timeScale = 1;
+        Jeon_Players.instance.animation.SetTrigger("Dead");
+        while (!Jeon_Players.instance.animation.GetCurrentAnimatorStateInfo(0).IsName("Dead"))
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void EscBtns()
@@ -237,6 +248,14 @@ public class GameUI : MonoBehaviour
 
         }
     }
+    public void FadeTouch()
+    {
+        if(CameraAI.instance.state == CameraAI.State.Go || CameraAI.instance.state == CameraAI.State.Return)
+        {
+            Fade.SetActive(false);
+            CameraAI.instance.state = CameraAI.State.Start;
+        }
+    }
 
 
     public void Start_Loby()
@@ -246,14 +265,14 @@ public class GameUI : MonoBehaviour
 
     IEnumerator Start_LobyUI()
     {
-        Logo.DOColor(new Color(0, 0, 0, 0), 2f);
+        Logo.DOColor(new Color(0, 0, 0, 0), 1f);
         while(Logo.color != new Color(0, 0, 0, 0))
         {
             yield return null;
         }
         Logo.gameObject.SetActive(false);
 
-        Loby.DOColor(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), 2f);
+        Loby.DOColor(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), 1f);
         while(Loby.color != new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f))
         {
             yield return null;
@@ -271,7 +290,7 @@ public class GameUI : MonoBehaviour
     {
         for(int i =0; i<Clear_Stars.Count; i++)
         {
-            Clear_Stars[i].DOColor(Stars[i].color, 2f);
+            Clear_Stars[i].DOColor(Stars[i].color, 1f);
             while(Clear_Stars[i].color != Stars[i].color)
             {
                 yield return null;
@@ -282,7 +301,7 @@ public class GameUI : MonoBehaviour
     {
         Fade.SetActive(true);
         Image image = Fade.GetComponent<Image>();
-        image.DOColor(Color.black, 3f);
+        image.DOColor(Color.black, 1f);
 
         while (image.color != Color.black)
         {
@@ -305,7 +324,7 @@ public class GameUI : MonoBehaviour
     {
         Fade.SetActive(true);
         Image image = Fade.GetComponent<Image>();
-        image.DOColor(new Color(0, 0, 0, 0), 3f);
+        image.DOColor(new Color(0, 0, 0, 0), 1f);
         SoundManger.instance.BGMplay("Map1");
         SoundManger.instance.BGM_POS(false);
         while (image.color != new Color(0, 0, 0, 0))

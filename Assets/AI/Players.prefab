@@ -123,7 +123,6 @@ MonoBehaviour:
   Gorund:
     serializedVersion: 2
     m_Bits: 1088
-  gameui: {fileID: 0}
 --- !u!114 &861001152962667186
 MonoBehaviour:
   m_ObjectHideFlags: 0

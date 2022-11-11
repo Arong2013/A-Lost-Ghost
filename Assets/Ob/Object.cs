@@ -1,6 +1,7 @@
+using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using DG.Tweening;
 
 public class Object : MonoBehaviour
 {
@@ -15,9 +16,16 @@ public class Object : MonoBehaviour
 
     [SerializeField]
     private WhatOb what;
+
+    [SerializeField]
+    GameObject Doors;
+
+    [SerializeField]
+    List<Sprite> btns;
+
+    bool Btns_On_Off;
+
     RaycastHit2D hit;
-    public GameObject door;
-    int count;
     string MapName;
 
     public void Start()
@@ -44,26 +52,16 @@ public class Object : MonoBehaviour
 
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (what == WhatOb.Button)
-        {
-            if (collision.gameObject.tag == "Line" && count == 0 || collision.gameObject.tag == "Player" && count == 0)
-            {
-                door.transform.position = new Vector2(door.transform.position.x, door.transform.position.y + 2);
-                count++;
-            }
-        }
-
-    }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (what == WhatOb.Button)
         {
-            if (collision.gameObject.tag == "Line" && count != 0 || collision.gameObject.tag == "Player" && count != 0)
+            if (collision.gameObject.tag == "Line" || collision.gameObject.tag == "Player")
             {
-                door.transform.position = new Vector2(door.transform.position.x, door.transform.position.y - 2);
-                count--;
+                if (Doors.GetComponent<Rigidbody2D>().velocity.magnitude == 0)
+                    Doors.transform.DOMoveY(0, 1f);
+
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = btns[1];
             }
 
         }
@@ -90,6 +88,12 @@ public class Object : MonoBehaviour
             SoundManger.instance.BGM_POS(false);
             GameUI.instance.Cun_Map = MapName;
 
+        }
+        else if (what == WhatOb.Button && collision.gameObject.tag == "Line")
+        {
+            Doors.transform.DOMoveY(3, 1f);
+            Btns_On_Off = true;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = btns[0];
         }
     }
 }

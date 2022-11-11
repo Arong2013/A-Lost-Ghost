@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 126040277}
+  state: 0
 --- !u!1 &126040277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 861001152962667184, guid: 2332462709b53614e92eb9b7f57ae735, type: 3}
@@ -492,8 +493,52 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 69438173}
     - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: lineColor.atime1
+      value: 53585
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: lineColor.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: lineColor.atime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: lineColor.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: lineColor.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: lineColor.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: lineColor.key1.b
+      value: 0.5566038
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: lineColor.key1.g
+      value: 0.5566038
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: lineColor.key1.r
+      value: 0.5566038
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: lineColor.key3.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
       propertyPath: cantDrawOverLayer.m_Bits
       value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256615908645679877, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
+      propertyPath: lineColor.m_NumAlphaKeys
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1256615908645679878, guid: 420d64fd79735354cb4d1d601630a516, type: 3}
       propertyPath: m_RootOrder
@@ -3132,7 +3177,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1762081551}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1325560582}
+        m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
+        m_MethodName: FadeTouch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1762081551
 MonoBehaviour:
   m_ObjectHideFlags: 0
