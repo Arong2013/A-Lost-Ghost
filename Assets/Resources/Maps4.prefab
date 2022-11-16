@@ -289,7 +289,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 30.208462, y: 3.2737932}
@@ -320,6 +320,7 @@ MonoBehaviour:
   what: 0
   Doors: {fileID: 0}
   btns: []
+  Moves: {fileID: 0}
 --- !u!50 &9175094405776593191
 Rigidbody2D:
   serializedVersion: 4
