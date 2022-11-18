@@ -13,6 +13,7 @@ public class Maps
     public string Name;
     public string BGM_Name;
     public GameObject Map;
+    public List<Sprite> Stars;
 }
 
 public class GameUI : MonoBehaviour
@@ -47,7 +48,7 @@ public class GameUI : MonoBehaviour
             if (MapSlot != null) // 맵 슬롯이 없다면 맵의 개수 만큼 슬롯 생성 = 맵 선택화면에서 스테이지 보이기 위해 
                 for (int i = 0; i < mapScipt.maps.Count; i++)
                 {
-                    Instantiate(MapSlot, MapParent.transform);
+                    GameObject map =  Instantiate(MapSlot, MapParent.transform);
                 }
            
         }
@@ -100,6 +101,8 @@ public class GameUI : MonoBehaviour
     [FoldoutGroup("UI")]
     [SerializeField]
     List<Image> Clear_Stars;
+
+    public MapScipt ScriptaOBmap;
 
 
     public float SliderV; // 맵 그리기 양
@@ -299,6 +302,22 @@ public class GameUI : MonoBehaviour
                 yield return null;
             }
         }
+
+        for(int i =0; i< mapScipt.maps.Count; i++)
+        {
+            if(mapScipt.maps[i].Name == Cun_Map)
+            {
+                mapScipt.maps[i].Stars.Clear();
+                for(int k =0; k<Stars.Count; k++)
+                {
+                    if (Stars[k].color == new Color(0, 0, 0, 0))
+                        mapScipt.maps[i].Stars.Add(mapScipt.Non_Fill_Star);
+                    else
+                        mapScipt.maps[i].Stars.Add(mapScipt.Fill_Star);
+                }
+            }    
+        }
+        
     }
     IEnumerator Next_Stage()
     {
