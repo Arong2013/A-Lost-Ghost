@@ -12,4 +12,19 @@ public class MapScipt : ScriptableObject
 
 
     public string Save_Map_Name;
+
+
+    public void Star_Add()
+    {
+        for (int i = 0; i < maps.Count; i++)
+        {
+            maps[i].Stars.Clear();
+            for (int k = 0; k < 3; k++)
+            {
+                maps[i].Stars.Add(Non_Fill_Star);
+            }
+        }
+          
+          
+    }
 }

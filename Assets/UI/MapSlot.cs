@@ -25,7 +25,11 @@ public class MapSlot : MonoBehaviour
     }
     public void BtnsDown()
     {
-        GameMapManger.instance.GameUIPre.GetComponent<GameUI>().mapScipt.Save_Map_Name = map.Name; // 프리팹으로 맵 이름을 저장 
-        SceneManager.LoadScene("InGame");        
+        if(!map.Lock)
+        {
+            GameUI.instance.mapScipt.Save_Map_Name = map.Name; // 프리팹으로 맵 이름을 저장 
+            SceneManager.LoadScene("InGame");
+        }
+            
     }
 }

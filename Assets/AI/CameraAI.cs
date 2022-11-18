@@ -51,8 +51,8 @@ public class CameraAI : MonoBehaviour
         if (state == State.Start)
         {
             this.gameObject.transform.position = new Vector3(Player.transform.position.x,Player.transform.position.y, -10);
-            if(Player.transform.position.y<-3)
-                this.gameObject.transform.position = new Vector3(Player.transform.position.x, -2, -10);
+            /*if(Player.transform.position.y<-3)
+                this.gameObject.transform.position = new Vector3(Player.transform.position.x, -2, -10);*/
         }
             
         else if(state == State.Go)

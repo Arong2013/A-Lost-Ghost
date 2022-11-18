@@ -14,6 +14,7 @@ public class Maps
     public string BGM_Name;
     public GameObject Map;
     public List<Sprite> Stars;
+    public bool Lock = true;
 }
 
 public class GameUI : MonoBehaviour
@@ -45,11 +46,11 @@ public class GameUI : MonoBehaviour
         }
         else if (whatScean == WhatScean.Lobby)
         {
-            if (MapSlot != null) // 맵 슬롯이 없다면 맵의 개수 만큼 슬롯 생성 = 맵 선택화면에서 스테이지 보이기 위해 
-                for (int i = 0; i < mapScipt.maps.Count; i++)
-                {
-                    GameObject map =  Instantiate(MapSlot, MapParent.transform);
-                }
+              if (MapSlot != null) // 맵 슬롯이 없다면 맵의 개수 만큼 슬롯 생성 = 맵 선택화면에서 스테이지 보이기 위해 
+                  for (int i = 0; i < mapScipt.maps.Count; i++)
+                  {
+                      GameObject map =  Instantiate(MapSlot, MapParent.transform);
+                  }
            
         }
 
@@ -121,7 +122,7 @@ public class GameUI : MonoBehaviour
 
     public void Start()
     {
-        
+        Cun_Map = mapScipt.Save_Map_Name;
         SliderV = 1000; //  그리기 쓰면 지워지는 것 
         if (whatScean == WhatScean.Stage)
         {
@@ -294,7 +295,28 @@ public class GameUI : MonoBehaviour
     }
     public  IEnumerator Clear_Stars_Color()
     {
-        for(int i =0; i<Clear_Stars.Count; i++)
+        for (int i = 0; i < mapScipt.maps.Count; i++)
+        {
+            if (mapScipt.maps[i].Name == Cun_Map)
+            {
+                mapScipt.maps[i].Stars.Clear();
+                
+                for (int k = 0; k < Stars.Count; k++)
+                {
+                    if (Stars[k].color == new Color(0, 0, 0, 0))
+                    {
+                        mapScipt.maps[i].Stars.Add(mapScipt.Non_Fill_Star);                     
+                    }               
+                    else
+                    {
+                        mapScipt.maps[i].Stars.Add(mapScipt.Fill_Star);
+                    }
+                       
+                }
+            }
+        }
+
+        for (int i =0; i<Clear_Stars.Count; i++)
         {
             Clear_Stars[i].DOColor(Stars[i].color, 1f);
             while(Clear_Stars[i].color != Stars[i].color)
@@ -303,20 +325,7 @@ public class GameUI : MonoBehaviour
             }
         }
 
-        for(int i =0; i< mapScipt.maps.Count; i++)
-        {
-            if(mapScipt.maps[i].Name == Cun_Map)
-            {
-                mapScipt.maps[i].Stars.Clear();
-                for(int k =0; k<Stars.Count; k++)
-                {
-                    if (Stars[k].color == new Color(0, 0, 0, 0))
-                        mapScipt.maps[i].Stars.Add(mapScipt.Non_Fill_Star);
-                    else
-                        mapScipt.maps[i].Stars.Add(mapScipt.Fill_Star);
-                }
-            }    
-        }
+       
         
     }
     IEnumerator Next_Stage()
@@ -334,6 +343,7 @@ public class GameUI : MonoBehaviour
             if (mapScipt.maps[i].Name == mapScipt.Save_Map_Name)
             {
                 Cun_Map = mapScipt.maps[i + 1].Name;
+                mapScipt.maps[i + 1].Lock = false;
             }
         }
         mapScipt.Save_Map_Name = Cun_Map;
@@ -357,4 +367,11 @@ public class GameUI : MonoBehaviour
         CameraAI.instance.Starts();
     }
 
+
+    public void Loby_Go()
+    {
+        DOTween.Init(false, false, LogBehaviour.Default).SetCapacity(100, 20);
+        SceneManager.LoadScene("StartScenes");
+    }
+   
 }

@@ -2570,12 +2570,16 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1617799022, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617799022, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1325560582}
     - target: {fileID: 1617799022, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GO_Stage
+      value: Loby_Go
       objectReference: {fileID: 0}
     - target: {fileID: 1617799022, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2663,15 +2667,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4062795863791365455, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062795863791365455, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062795863791365455, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062795864085505232, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_FontData.m_MaxSize
@@ -2739,11 +2743,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4062795864349193476, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062795864349193476, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062795864362124895, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_Enabled
@@ -2915,23 +2919,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4062795865191591348, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062795865191591348, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062795865191591348, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062795865543232869, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062795865543232869, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062795865745398166, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2959,7 +2963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4062795865932840214, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4062795865932840215, guid: 45fb2bfd2900cce44a47b00f030b1f0f, type: 3}
       propertyPath: m_Pivot.x
@@ -4337,6 +4341,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1325560582}
+    - target: {fileID: 8872091185990805945, guid: ec35b89380fd2714c97ace497f1c3052, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Loby_Go
+      objectReference: {fileID: 0}
     - target: {fileID: 8872091186011358835, guid: ec35b89380fd2714c97ace497f1c3052, type: 3}
       propertyPath: m_SizeDelta.x
       value: 200
