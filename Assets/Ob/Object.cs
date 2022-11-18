@@ -1,7 +1,11 @@
 using DG.Tweening;
+using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Object : MonoBehaviour
 {
@@ -16,14 +20,17 @@ public class Object : MonoBehaviour
 
     [SerializeField]
     private WhatOb what;
-
+    [FoldoutGroup("Button")]
     [SerializeField]
     GameObject Doors;
-
+    [FoldoutGroup("Button")]
     [SerializeField]
     List<Sprite> btns;
+    [FoldoutGroup("Stone")]
+    [SerializeField]
+    BoxCollider2D Moves;
 
-    bool Btns_On_Off;
+
 
     RaycastHit2D hit;
     string MapName;
@@ -34,26 +41,8 @@ public class Object : MonoBehaviour
             GameUI.instance.Stone.Add(this.gameObject.GetComponent<Rigidbody2D>());
     }
 
-    public void Update()
-    {
-        if (what == WhatOb.Wind)
-        {          /* 
-            hit =  Physics2D.Raycast(transform.position, Vector2.left,5f);
-            Debug.DrawRay(transform.position, Vector2.left * 5f, Color.red);
-            if (hit.transform.gameObject == GameUI.instance.Player)
-            {
-                hit.transform.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0));
-
-            }
-            else
-            {
-                return;
-            }*/
-
-        }
-    }
     private void OnCollisionExit2D(Collision2D collision)
-    {
+    {/*
         if (what == WhatOb.Button)
         {
             if (collision.gameObject.tag == "Line" || collision.gameObject.tag == "Player")
@@ -64,7 +53,7 @@ public class Object : MonoBehaviour
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = btns[1];
             }
 
-        }
+        }*/
 
     }
 
@@ -73,12 +62,12 @@ public class Object : MonoBehaviour
         if (collision.gameObject.tag == "Player" && what == WhatOb.Thorn)
         {
             SoundManger.instance.SFXplay("Hit");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine(ReStarts());
         }
         else if (collision.gameObject.tag == "Player" && what == WhatOb.Stone)
         {
             SoundManger.instance.SFXplay("Hit");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine(ReStarts());
         }
         else if (collision.gameObject.tag == "Player" && what == WhatOb.Finsh)
         {
@@ -91,9 +80,35 @@ public class Object : MonoBehaviour
         }
         else if (what == WhatOb.Button && collision.gameObject.tag == "Line")
         {
-            Doors.transform.DOMoveY(3, 1f);
-            Btns_On_Off = true;
+            Doors.transform.DOLocalMoveY(Doors.transform.position.y+6, 1f);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = btns[0];
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && what == WhatOb.Stone)
+        {
+            this.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        }
+
+        if (collision.gameObject.tag == "Player" && what == WhatOb.Thorn)
+        {
+            SoundManger.instance.SFXplay("Hit");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    IEnumerator ReStarts()
+    {
+        Time.timeScale = 1;
+        Jeon_Players.instance.animation.SetTrigger("Hit");
+        while (!Jeon_Players.instance.animation.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 }

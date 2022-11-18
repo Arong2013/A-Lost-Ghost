@@ -228,7 +228,7 @@ public class GameUI : MonoBehaviour
         {
             yield return null;
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void EscBtns()
@@ -285,7 +285,10 @@ public class GameUI : MonoBehaviour
         StartCoroutine(Next_Stage());
     }
 
-
+    public void Exit()
+    {
+        Application.Quit();
+    }
     public  IEnumerator Clear_Stars_Color()
     {
         for(int i =0; i<Clear_Stars.Count; i++)
