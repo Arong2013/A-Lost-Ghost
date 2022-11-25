@@ -71,20 +71,23 @@ public class Jeon_Players : MonoBehaviour
                 spriteren.flipX = true;
                 animation.SetBool("Walk", true);
                 break;
-            case "Jump":
-                RaycastHit2D JumpHit;
-              
-                JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y-1.2f), new Vector2(transform.position.x, transform.position.y - 1.2f), Gorund);
-                if (JumpHit)
-                {
-                    SoundManger.instance.SFXplay("Jump");
-                    Playerdis = PlayerDIs.Jump;
-                }
-                else
-                {
-                    Playerdis = PlayerDIs.Normal;
-                }
-                break;
+           
+        }
+    }
+
+    public void Jump()
+    {
+        RaycastHit2D JumpHit;
+
+        JumpHit = Physics2D.Linecast(new Vector2(transform.position.x, transform.position.y - 1.2f), new Vector2(transform.position.x, transform.position.y - 1.2f), Gorund);
+        if (JumpHit)
+        {
+            SoundManger.instance.SFXplay("Jump");
+            Playerdis = PlayerDIs.Jump;
+        }
+        else
+        {
+            Playerdis = PlayerDIs.Normal;
         }
     }
     public void ButtonUP()

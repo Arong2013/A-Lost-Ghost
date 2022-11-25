@@ -22,7 +22,7 @@ public class Line : MonoBehaviour
 
 		points.Add(newPoint); // 라인렌더러의 포인트에 백터 더해주라
 		pointsCount++; // 포인트 추가
-		GameUI.instance.SliderV -= 1; // 슬라이더 감소
+		GameUI.instance.SliderV -= 2; // 슬라이더 감소
 
 
 		CircleCollider2D circleCollider = this.gameObject.AddComponent<CircleCollider2D>();

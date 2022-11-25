@@ -20,12 +20,20 @@ public class Object : MonoBehaviour
 
     [SerializeField]
     private WhatOb what;
+    
     [FoldoutGroup("Button")]
     [SerializeField]
     GameObject Doors;
+    
+    [FoldoutGroup("Button")]
+    [SerializeField]
+    int x,y;
+
+
     [FoldoutGroup("Button")]
     [SerializeField]
     List<Sprite> btns;
+    
     [FoldoutGroup("Stone")]
     [SerializeField]
     BoxCollider2D Moves;
@@ -42,18 +50,7 @@ public class Object : MonoBehaviour
     }
 
     private void OnCollisionExit2D(Collision2D collision)
-    {/*
-        if (what == WhatOb.Button)
-        {
-            if (collision.gameObject.tag == "Line" || collision.gameObject.tag == "Player")
-            {
-                if (Doors.GetComponent<Rigidbody2D>().velocity.magnitude == 0)
-                    Doors.transform.DOMoveY(0, 1f);
-
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = btns[1];
-            }
-
-        }*/
+    {
 
     }
 
@@ -69,18 +66,10 @@ public class Object : MonoBehaviour
             SoundManger.instance.SFXplay("Hit");
             StartCoroutine(ReStarts());
         }
-        else if (collision.gameObject.tag == "Player" && what == WhatOb.Finsh)
-        {
-            GameUI.instance.ClearUI.SetActive(true);
-            StartCoroutine(GameUI.instance.Clear_Stars_Color());
-            SoundManger.instance.SFXplay("Clear");
-            SoundManger.instance.BGM_POS(false);
-            GameUI.instance.Cun_Map = MapName;
-
-        }
+       
         else if (what == WhatOb.Button && collision.gameObject.tag == "Line")
         {
-            Doors.transform.DOLocalMoveY(Doors.transform.position.y+6, 1f);
+            Doors.transform.DOLocalMove(new Vector3(Doors.transform.localPosition.x + x, Doors.transform.localPosition.y + y, 0), 1f);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = btns[0];
         }
     }
@@ -96,6 +85,16 @@ public class Object : MonoBehaviour
         {
             SoundManger.instance.SFXplay("Hit");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        else if (collision.gameObject.tag == "Player" && what == WhatOb.Finsh)
+        {
+            GameUI.instance.ClearUI.SetActive(true);
+            StartCoroutine(GameUI.instance.Clear_Stars_Color());
+            SoundManger.instance.SFXplay("Clear");
+            SoundManger.instance.BGM_POS(false);
+            GameUI.instance.Cun_Map = MapName;
+
         }
     }
 
