@@ -237,6 +237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   what: 0
   Doors: {fileID: 0}
+  x: 0
+  y: 0
   btns: []
   Moves: {fileID: 0}
 --- !u!50 &6244355396147203703
@@ -1567,11 +1569,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4397405250124793399, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.900063
+      value: 41.15
       objectReference: {fileID: 0}
     - target: {fileID: 4397405250124793399, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.240681
+      value: 6.15
       objectReference: {fileID: 0}
     - target: {fileID: 4397405250124793399, guid: bba3a5bb898dff84baf70a40344c38f8, type: 3}
       propertyPath: m_LocalPosition.z
