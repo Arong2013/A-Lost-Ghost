@@ -15,7 +15,9 @@ public class Object : MonoBehaviour
         Wind,
         Button,
         Finsh,
-        Stone
+        Stone,
+        YoYo_Button,
+        Plate
     }
 
     [SerializeField]
@@ -42,18 +44,13 @@ public class Object : MonoBehaviour
 
     RaycastHit2D hit;
     string MapName;
+    Vector3 Dis;
 
     public void Start()
     {
         if (what == WhatOb.Stone)
             GameUI.instance.Stone.Add(this.gameObject.GetComponent<Rigidbody2D>());
     }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player" && what == WhatOb.Thorn)
@@ -71,6 +68,25 @@ public class Object : MonoBehaviour
         {
             Doors.transform.DOLocalMove(new Vector3(Doors.transform.localPosition.x + x, Doors.transform.localPosition.y + y, 0), 1f);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = btns[0];
+        }
+
+        else if (what == WhatOb.YoYo_Button && collision.gameObject.tag == "Line")
+        {
+            Doors.transform.DOLocalMove(new Vector3(Doors.transform.localPosition.x + x, Doors.transform.localPosition.y + y, 0),3f).SetLoops(100,LoopType.Yoyo);
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = btns[0];
+        }
+
+        else if (what == WhatOb.Plate && collision.gameObject.tag == "Player")
+        {
+            collision.transform.SetParent(null);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (what == WhatOb.Plate && collision.gameObject.tag == "Player")
+        {
+            collision.transform.SetParent(this.transform);
         }
     }
 

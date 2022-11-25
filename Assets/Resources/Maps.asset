@@ -76,7 +76,7 @@ MonoBehaviour:
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    Lock: 1
+    Lock: 0
   - Name: 1-9
     BGM_Name: Maps1
     Map: {fileID: 1573674287833116577, guid: 717e7b47287f0e040b1ed6515a5f9c8d, type: 3}
@@ -95,4 +95,4 @@ MonoBehaviour:
     Lock: 1
   Fill_Star: {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
   Non_Fill_Star: {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-  Save_Map_Name: 1-2
+  Save_Map_Name: 1-3
