@@ -141,6 +141,7 @@ public class GameUI : MonoBehaviour
         }
         else if (whatScean == WhatScean.Lobby)
         {
+            DOTween.Sequence().Restart();
             SoundManger.instance.BGMplay("Main");
             Logo.DOColor(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), 2f);
         }
@@ -409,7 +410,8 @@ public class GameUI : MonoBehaviour
 
     public void Loby_Go()
     {
-        DOTween.Init(false, false, LogBehaviour.Default).SetCapacity(100, 20);
+        Time.timeScale = 1;
+        //DOTween.Init(true, false, LogBehaviour.Default).SetCapacity(100,100);
         SceneManager.LoadScene("StartScenes");
     }
 
