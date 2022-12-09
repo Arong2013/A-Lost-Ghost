@@ -66,7 +66,7 @@ MonoBehaviour:
   - soundname: Hit
     clip: {fileID: 8300000, guid: 835868c28594e3c4abaf35cfed5ac631, type: 3}
   - soundname: Clear
-    clip: {fileID: 8300000, guid: a7e3518520ffd6a41ba8306063a01569, type: 3}
+    clip: {fileID: 8300000, guid: 1ee6c4d88c7928840987f6df2db39357, type: 3}
   - soundname: Button
     clip: {fileID: 8300000, guid: e02be4532407bc640841bbd7eb53f567, type: 3}
   - soundname: Button
