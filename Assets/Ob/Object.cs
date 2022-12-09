@@ -66,8 +66,10 @@ public class Object : MonoBehaviour
        
         else if (what == WhatOb.Button && collision.gameObject.tag == "Line")
         {
+            Doors.GetComponent<BoxCollider2D>().isTrigger = true;
             Doors.transform.DOLocalMove(new Vector3(Doors.transform.localPosition.x + x, Doors.transform.localPosition.y + y, 0), 1f);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = btns[0];
+          
         }
 
         else if (what == WhatOb.YoYo_Button && collision.gameObject.tag == "Line")
@@ -75,18 +77,18 @@ public class Object : MonoBehaviour
             Doors.transform.DOLocalMove(new Vector3(Doors.transform.localPosition.x + x, Doors.transform.localPosition.y + y, 0),3f).SetLoops(100,LoopType.Yoyo);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = btns[0];
         }
-
         else if (what == WhatOb.Plate && collision.gameObject.tag == "Player")
         {
-            collision.transform.SetParent(null);
+            collision.transform.SetParent(this.transform);
         }
+      
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (what == WhatOb.Plate && collision.gameObject.tag == "Player")
         {
-            collision.transform.SetParent(this.transform);
+            collision.transform.SetParent(null);
         }
     }
 

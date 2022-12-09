@@ -103,6 +103,11 @@ MonoBehaviour:
   Logo: {fileID: 0}
   Loby: {fileID: 0}
   LobyUI: {fileID: 0}
+  Pen: {fileID: 0}
+  Eraser: {fileID: 0}
+  InScrean: {fileID: 0}
+  backGround1: {fileID: 0}
+  backGround2: {fileID: 0}
   MapParent: {fileID: 0}
   MapSlot: {fileID: 7596907401057444348, guid: a56e51e7aa843ff488880fe24cdf1c29, type: 3}
   mapScipt: {fileID: 11400000, guid: 7a5dfe5ae3d85c940a122cc6882941b1, type: 2}
@@ -121,3 +126,4 @@ MonoBehaviour:
   Cun_Map: 
   MapSelectUI: {fileID: 0}
   Stone: []
+  mapChangeCount: 0

@@ -99,9 +99,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   what: 2
   Doors: {fileID: 0}
+  x: 0
+  y: 0
   btns:
   - {fileID: 21300000, guid: ce8fdeb524ff6bc46b1a69c91f0fb443, type: 3}
   - {fileID: 21300000, guid: 8259a7eb380411740b3882156bc8753e, type: 3}
+  Moves: {fileID: 0}
 --- !u!61 &1552706166960386524
 BoxCollider2D:
   m_ObjectHideFlags: 0

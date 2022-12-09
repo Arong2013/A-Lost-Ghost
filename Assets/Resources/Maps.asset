@@ -33,9 +33,9 @@ MonoBehaviour:
     BGM_Name: Maps1
     Map: {fileID: 681582356332847636, guid: 37fdce06be76e5f4ba8d32980e742fe3, type: 3}
     Stars:
-    - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
+    - {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
+    - {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
+    - {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     Lock: 0
   - Name: 1-4
     BGM_Name: Maps1
@@ -43,7 +43,7 @@ MonoBehaviour:
     Stars:
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    - {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
+    - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     Lock: 0
   - Name: 1-5
     BGM_Name: Maps1
@@ -60,22 +60,22 @@ MonoBehaviour:
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    Lock: 1
+    Lock: 0
   - Name: 1-7
     BGM_Name: Maps1
     Map: {fileID: 1573674287833116577, guid: 84ecb74d275e0534f8858483902c0079, type: 3}
     Stars:
-    - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    Lock: 1
+    - {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
+    - {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
+    - {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
+    Lock: 0
   - Name: 1-8
     BGM_Name: Maps1
     Map: {fileID: 3638608099828634065, guid: bf50251ef31b33a4ca0a56ffdffc825e, type: 3}
     Stars:
-    - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
+    - {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
+    - {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
+    - {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     Lock: 0
   - Name: 1-9
     BGM_Name: Maps1
@@ -84,7 +84,7 @@ MonoBehaviour:
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    Lock: 1
+    Lock: 0
   - Name: 1-10
     BGM_Name: Maps1
     Map: {fileID: 1573674287833116577, guid: 2d7a72095d1a556498acb7f0c8663e1e, type: 3}
@@ -92,7 +92,7 @@ MonoBehaviour:
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
     - {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-    Lock: 1
+    Lock: 0
   Fill_Star: {fileID: 4525648263698465241, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
   Non_Fill_Star: {fileID: -8410548854823183569, guid: 56b76ff80ec273e439319ad1e719e3c3, type: 3}
-  Save_Map_Name: 1-3
+  Save_Map_Name: 1-6

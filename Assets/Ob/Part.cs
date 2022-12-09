@@ -8,7 +8,7 @@ public class Part : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.transform.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0));
+            other.transform.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0));           
         }
     }
 }

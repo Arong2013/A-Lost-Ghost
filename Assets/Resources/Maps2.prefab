@@ -1386,7 +1386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1692453694299890079, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.9443
+      value: 1.9133856
       objectReference: {fileID: 0}
     - target: {fileID: 1692453694299890079, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1394,7 +1394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1692453694299890079, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5773
+      value: 0.5454
       objectReference: {fileID: 0}
     - target: {fileID: 1692453694299890079, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1431,6 +1431,14 @@ PrefabInstance:
     - target: {fileID: 3998346176117401267, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976628837192428090, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
+      propertyPath: m_Size.y
+      value: 2.0667245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976628837192428090, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.06891218
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9966150068cc9484792dd2dbb077a725, type: 3}

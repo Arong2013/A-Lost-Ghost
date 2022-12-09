@@ -1770,6 +1770,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8976628837192428090, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
+      propertyPath: m_Size.x
+      value: 0.21152404
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976628837192428090, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
+      propertyPath: m_Size.y
+      value: 1.814439
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976628837192428090, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.01852879
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976628837192428090, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.01062265
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
 --- !u!1 &6416692523315982474 stripped
@@ -1840,6 +1856,22 @@ PrefabInstance:
     - target: {fileID: 3998346176117401267, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976628837192428090, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
+      propertyPath: m_Size.x
+      value: 0.27573162
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976628837192428090, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8154478
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976628837192428090, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.014540825
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976628837192428090, guid: 9966150068cc9484792dd2dbb077a725, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.016124725
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9966150068cc9484792dd2dbb077a725, type: 3}

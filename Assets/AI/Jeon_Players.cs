@@ -49,8 +49,8 @@ public class Jeon_Players : MonoBehaviour
                 transform.Translate(new Vector3(-1 * 5f * Time.deltaTime, 0, 0));
                 break;
             case PlayerDIs.Jump:
-                rigidbody.AddForce(Vector2.up * 1f, ForceMode2D.Impulse);
-                Playerdis = PlayerDIs.Normal;
+               
+               // Playerdis = PlayerDIs.Normal;
                 break;
         }
     }
@@ -71,7 +71,6 @@ public class Jeon_Players : MonoBehaviour
                 spriteren.flipX = true;
                 animation.SetBool("Walk", true);
                 break;
-           
         }
     }
 
@@ -83,7 +82,7 @@ public class Jeon_Players : MonoBehaviour
         if (JumpHit)
         {
             SoundManger.instance.SFXplay("Jump");
-            Playerdis = PlayerDIs.Jump;
+            rigidbody.AddForce(Vector2.up * 1f, ForceMode2D.Impulse);
         }
         else
         {

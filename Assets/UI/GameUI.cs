@@ -71,7 +71,6 @@ public class GameUI : MonoBehaviour
     [SerializeField]
     WhatScean whatScean;
     [FoldoutGroup("Scean")]
-    [SerializeField]
     public GameObject Fade;
     [FoldoutGroup("Scean")]
     [SerializeField]
@@ -85,6 +84,9 @@ public class GameUI : MonoBehaviour
     [FoldoutGroup("Scean")]
     [SerializeField]
     Image InScrean;
+    [FoldoutGroup("Scean")]
+    [SerializeField]
+    RawImage backGround1, backGround2;
 
     [FoldoutGroup("Map")]
     public GameObject MapParent, MapSlot;
@@ -125,7 +127,9 @@ public class GameUI : MonoBehaviour
     public List<Rigidbody2D> Stone;
 
 
-
+    [SerializeField]
+    int mapChangeCount;
+    bool isUp = true;
     public void Start()
     {
         Cun_Map = mapScipt.Save_Map_Name;
@@ -183,6 +187,32 @@ public class GameUI : MonoBehaviour
             if (SliderV <= 200)
                 Stars[2].DOColor(new Color(0, 0, 0, 0), 2f);
         }
+
+        if (backGround1 != null && backGround1.transform.parent.gameObject.activeSelf)
+        {
+            if (isUp)
+                mapChangeCount++;
+            else
+                mapChangeCount--;
+
+
+            if (mapChangeCount == 1000)
+            {               
+                backGround1.DOColor(new Color(0, 0, 0, 0), 1f);
+                backGround2.DOColor(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), 0.5f);
+                isUp = false;
+            }
+            else if (mapChangeCount == 0)
+            {
+                backGround1.DOColor(new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f), 0.5f);
+                backGround2.DOColor(new Color(0, 0, 0, 0), 1f);
+                isUp = true;
+            }
+        }
+
+
+
+
     }
 
     public void StartBtns()
