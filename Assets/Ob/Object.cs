@@ -114,6 +114,16 @@ public class Object : MonoBehaviour
             GameUI.instance.Cun_Map = MapName;
 
         }
+
+        else if (what == WhatOb.YoYo_Button && collision.gameObject.tag == "Line")
+        {
+            Doors.transform.DOLocalMove(new Vector3(Doors.transform.localPosition.x + x, Doors.transform.localPosition.y + y, 0), 3f).SetLoops(100, LoopType.Yoyo);
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = btns[0];
+        }
+        else if (what == WhatOb.Plate && collision.gameObject.tag == "Player")
+        {
+            collision.transform.SetParent(this.transform);
+        }
     }
 
     IEnumerator ReStarts()

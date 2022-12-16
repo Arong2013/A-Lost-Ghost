@@ -14,6 +14,14 @@ public class MapScipt : ScriptableObject
     public string Save_Map_Name;
 
 
+    public void Starts()
+    {
+        for (int i = 0; i < maps.Count; i++)
+            for (int s = 0; s < maps[i].Stars.Count; s++)
+                maps[i].Stars[s] = Non_Fill_Star;
+            
+    }
+
     public void Star_Add()
     {
         for (int i = 0; i < maps.Count; i++)

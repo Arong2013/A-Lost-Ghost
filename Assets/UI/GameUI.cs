@@ -53,8 +53,6 @@ public class GameUI : MonoBehaviour
                 }
 
         }
-
-
         if (MapParent != null)
         {
             for (int i = 0; i < MapParent.transform.childCount; i++)
@@ -63,6 +61,7 @@ public class GameUI : MonoBehaviour
                 MapParent.transform.GetChild(i).GetComponent<MapSlot>().map = mapScipt.maps[i];
             }
         }
+       // ScriptaOBmap.Starts();
     }
     #endregion
 
